@@ -1,8 +1,9 @@
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { WebRequestService } from './web-request.service';
-import { shareReplay, tap } from 'rxjs/operators';
+import { catchError, shareReplay, tap } from 'rxjs/operators';
 import { HttpClient, HttpResponse } from '@angular/common/http';
+import { empty, throwError } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
