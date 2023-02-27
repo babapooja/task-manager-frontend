@@ -14,7 +14,6 @@ export class SignUpComponent implements OnInit {
 
   signup(email: string, password: string) {
     this.authService.signup(email, password).subscribe((res) => {
-      console.log(res);
       this.router.navigateByUrl('/lists');
     });
   }
