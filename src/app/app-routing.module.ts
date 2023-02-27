@@ -12,7 +12,7 @@ const routes: Routes = [
   {
     path: '',
     pathMatch: 'full',
-    redirectTo: 'lists',
+    redirectTo: 'login',
   },
   {
     path: 'new-list',
