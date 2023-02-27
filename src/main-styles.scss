@@ -1,0 +1,191 @@
+// global styles
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400;500;600;700&display=swap');
+
+// background-image: linear-gradient(to right, #8e2de2, #4a00e0);
+$blue: #4a00e0;
+$purple: #8e2de2;
+$dark-purple: #441c67;
+$light-purple: #c998f5;
+$active-purple: #e3d4ef;
+$light: #f8f8f8;
+$placeholder-color: #cdcdcd;
+
+// update bulma's global variables
+$family-sans-serif: 'Comfortaa', cursive;
+$primary: $purple;
+$link: $light_purple;
+
+$control-border-width: 2px;
+$input-border-color: transparent;
+$input-shadow: none;
+
+$gradient: linear-gradient(to right top, $purple, $blue);
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    background: $gradient;
+    font-family: $family-sans-serif;
+    color: $dark-purple;
+    body {
+        margin: 0;
+    }
+    .title {
+        color: $dark-purple;
+        font-weight: 600;
+        font-size: x-large;
+        margin: 0;
+    }
+
+    p {
+        margin: 0;
+    }
+
+    input {
+        outline: none;
+        height: 40px;
+        padding: 5px 8px;
+        border-radius: 5px;
+        width: 100%;
+        background-color: $light;
+        color: $dark-purple;
+        border: none;
+
+        &::placeholder {
+            color: $placeholder-color;
+        }
+
+        &:hover {
+            border: 1px solid lightgray;
+        }
+
+    }
+
+    .margin-right {
+        margin-right: 10px;
+    }
+
+    .margin-top {
+        margin-top: 10px;
+    }
+
+    .margin-bottom {
+        margin-bottom: 10px;
+    }
+
+    .margin-left {
+        margin-left: 10px;
+    }
+
+    button {
+        outline: none;
+        width: 100%;
+        height: 40px;
+        box-shadow: none;
+        padding: 10px 15px;
+        border-radius: 5px;
+        font-size: 16px;
+        cursor: pointer;
+        border: $light;
+        transition: 0.2s ease-in-out 0s;
+
+
+        &:hover {
+            transform: scale(1.05);
+            border: 1px solid lightgray;
+        }
+
+        &:focus,
+        &:active {
+            box-shadow: 0 0 0 3px gray;
+        }
+
+        &.primary {
+            border: none;
+            color: white;
+            background: $gradient;
+            font-weight: 500;
+
+            &:hover {
+                background-color: $light-purple;
+            }
+
+            &:disabled {
+                opacity: 0.6;
+                transform: scale(1);
+                cursor: default;
+            }
+
+            &:focus {
+                box-shadow: 0 0 0 3px $blue;
+            }
+        }
+    }
+}
+
+
+html,
+body {
+    height: 100%;
+}
+
+.centered__div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+}
+.error__message {
+    height: -webkit-fill-available;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.modal__box {
+    min-height: 200px;
+    width: 100%;
+    max-width: 580px;
+    background-color: white;
+    border-radius: 10px;
+    padding: 25px;
+    .form {
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 30px 0;
+
+        input {
+            height: 45px;
+            font-size: large;
+        }
+    }
+
+    .buttons {
+        display: flex;
+        justify-content: flex-end;
+
+        button {
+            width: 150px;
+            height: 45px;
+        }
+    }
+    .fa {
+        font-size: x-large;
+        cursor: pointer;
+        opacity: 0;
+        transform: scale(0.5);
+    }
+
+    .fa-pencil-square {
+        color: green;
+        margin-right: 5px;
+    }
+
+    .fa-trash {
+        color: red;
+    }
+}

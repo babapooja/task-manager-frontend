@@ -1,0 +1,18 @@
+<div class="centered__div">
+    <div class="login__box">
+        <h1 class="title">Sign-Up to Task Manager</h1>
+        <div class="form">
+            <input #userNameInput type="text" placeholder="Enter user name..." />
+            <input #passwordInput class="margin-top margin-bottom" type="password" placeholder="Enter password..."
+                (keypress)="$event.code=='Enter'?signup(userNameInput.value, passwordInput.value):''" />
+        </div>
+        <div class="buttons">
+            <button class="button primary" (click)="signup(userNameInput.value, passwordInput.value)"> SignUp </button>
+        </div>
+        <div class="sign__up">
+            <p>Already have an account? <a class="button primary" [routerLink]="['/','login']"> Login</a> now!</p>
+
+        </div>
+
+    </div>
+</div>

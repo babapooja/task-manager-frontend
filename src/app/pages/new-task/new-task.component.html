@@ -1,0 +1,14 @@
+<div class="centered__div">
+    <div class="modal__box">
+        <h1 class="title">Create a new task</h1>
+        <div class="form">
+            <input #taskTitleInput type="text" placeholder="Enter task name..." />
+
+        </div>
+        <div class="buttons">
+            <button class="button margin-right" routerLink="/">Cancel</button>
+            <button class="button primary" (click)="createTask(taskTitleInput.value)"> Submit </button>
+        </div>
+
+    </div>
+</div>

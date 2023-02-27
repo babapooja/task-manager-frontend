@@ -1,0 +1,22 @@
+<div class="centered__div">
+    <div class="login__box">
+        <h1 class="title">Login to Task Manager</h1>
+        <div *ngIf="errorMessage!=''" class="error__message">
+            <p>{{errorMessage}}</p>
+        </div>
+        <div class="form">
+            <input #userNameInput type="text" placeholder="Enter user name..." />
+            <input #passwordInput class="margin-top margin-bottom" type="password" placeholder="Enter password..."
+                (keypress)="$event.code=='Enter'?login(userNameInput.value, passwordInput.value):''" />
+
+        </div>
+        <div class="buttons">
+            <button class="button primary" (click)="login(userNameInput.value, passwordInput.value)"> Login </button>
+        </div>
+        <div class="sign__up">
+            <p>Don't have an account? <a class="button primary" [routerLink]="['/','sign-up']">Sign Up</a> now!</p>
+
+        </div>
+
+    </div>
+</div>

@@ -1,0 +1,60 @@
+<div class="centered__div">
+    <div class="taskView__container">
+        <div class="taskView__sidebar">
+            <div class="title">
+                Lists
+            </div>
+            <div class="taskView__listMenu">
+                <ng-container *ngIf="lists?.length>0 else noLists">
+                    <a class="listMenu__menuItem" [ngClass]="list._id == currentId?'isActive':''"
+                        *ngFor="let list of lists">
+                        <p [routerLink]="['/lists', list._id]" title={{list.title}}>{{list.title}}</p>
+                        <div>
+                            <i class="fa fa-pencil-square" (click)="performAction('list', 'patch',list)"></i>
+                            <i class="fa fa-trash" (click)="performAction('list', 'delete',list)"></i>
+                        </div>
+                    </a>
+                </ng-container>
+
+                <ng-template #noLists>
+                    <div class="error__message">
+                        <p>No Lists Found</p>
+                    </div>
+                </ng-template>
+            </div>
+            <button class="primary" routerLink="/new-list">+ New List</button>
+
+        </div>
+
+
+
+        <div class="taskView__taskListContainer">
+            <div class="top__bar">
+                <div class="title">
+                    Tasks
+                </div>
+                <i class="fa fa-sign-out" title="Sign out of the application" (click)="logout()"></i>
+            </div>
+            <!-- task elements -->
+            <ng-container *ngIf="tasks?.length>0 else noTasks">
+                <div class="task" *ngFor="let task of tasks" [ngClass]="{'complete': task.completed}">
+                    <p (click)="onTaskClickListener(task)" title={{task.title}}>
+                        {{task.title}}
+                    </p>
+                    <div>
+                        <i class="fa fa-pencil-square" (click)="performAction('task', 'patch',task)"></i>
+                        <i class="fa fa-trash" (click)="performAction('task', 'delete',task)"></i>
+                    </div>
+                </div>
+            </ng-container>
+
+            <ng-template #noTasks>
+                <div class="error__message">
+                    <p>No Tasks Found</p>
+                </div>
+            </ng-template>
+
+            <button class="button primary circle-add-button" routerLink="/lists/{{currentId}}/new-task">+</button>
+        </div>
+    </div>
+</div>
