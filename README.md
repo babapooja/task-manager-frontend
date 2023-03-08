@@ -1,6 +1,6 @@
 # Task Manager - FrontEnd
 
-This frontend application is developed using Angular, and is deployed on Azure at - [Task Manager](https://task-manager.azurewebsites.net/).
+This frontend application is developed using Angular, and is deployed on Azure at - [Task Manager](https://task-manager.azurewebsites.net/). To implement this application, followed tutorial by [Devstackr - Build a Task Manager Application](https://youtu.be/V-CeWkz1MNQ)
 
 ## Features
 
