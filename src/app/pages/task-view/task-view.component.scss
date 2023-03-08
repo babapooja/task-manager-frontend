@@ -36,18 +36,22 @@
             color: $purple;
             cursor: pointer;
             text-decoration: none;
+
             &:hover {
                 background: $light;
+
                 .fa {
                     opacity: 1;
                     transition: opacity 0.8s ease, transform 0.2s ease;
                     transform: scale(1.05);
                 }
             }
+
             &.isActive {
                 background-color: $active-purple;
                 color: $dark-purple;
             }
+
             p {
                 text-overflow: ellipsis;
                 width: 75%;
@@ -71,12 +75,19 @@
         display: flex;
         justify-content: space-between;
         align-items: center;
-
+        button {
+            width: auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
         .fa {
             font-size: xx-large;
-            color: gray;
+            color: white;
+            opacity: 1;
         }
     }
+
     .task {
         background-color: white;
         padding: 15px 20px;
@@ -87,6 +98,7 @@
         justify-content: space-between;
         align-items: center;
         max-width: 700px;
+
         &:hover {
             .fa {
                 opacity: 1;
@@ -94,6 +106,7 @@
                 transition: opacity 0.8s, transform 0.2s;
             }
         }
+
         p {
             cursor: pointer;
             width: 85%;
@@ -119,6 +132,7 @@
         }
 
     }
+
     .circle-add-button {
         height: 50px;
         width: 50px;

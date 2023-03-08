@@ -1,3 +1,4 @@
+<app-spinner *ngIf="isLoading"></app-spinner>
 <div class="centered__div">
     <div class="taskView__container">
         <div class="taskView__sidebar">
@@ -10,14 +11,16 @@
                         *ngFor="let list of lists">
                         <p [routerLink]="['/lists', list._id]" title={{list.title}}>{{list.title}}</p>
                         <div>
-                            <i class="fa fa-pencil-square" (click)="performAction('list', 'patch',list)"></i>
-                            <i class="fa fa-trash" (click)="performAction('list', 'delete',list)"></i>
+                            <i class="fa fa-pencil-square" title="Edit list name"
+                                (click)="performAction('list', 'patch',list)"></i>
+                            <i class="fa fa-trash" title="Delete list"
+                                (click)="performAction('list', 'delete',list)"></i>
                         </div>
                     </a>
                 </ng-container>
 
                 <ng-template #noLists>
-                    <div class="error__message">
+                    <div *ngIf="!isLoading" class="error__message">
                         <p>No Lists Found</p>
                     </div>
                 </ng-template>
@@ -33,7 +36,7 @@
                 <div class="title">
                     Tasks
                 </div>
-                <i class="fa fa-sign-out" title="Sign out of the application" (click)="logout()"></i>
+                <button class="primary" (click)="logout()">Sign Out <i class="fa fa-sign-out"></i></button>
             </div>
             <!-- task elements -->
             <ng-container *ngIf="tasks?.length>0 else noTasks">
@@ -42,19 +45,21 @@
                         {{task.title}}
                     </p>
                     <div>
-                        <i class="fa fa-pencil-square" (click)="performAction('task', 'patch',task)"></i>
-                        <i class="fa fa-trash" (click)="performAction('task', 'delete',task)"></i>
+                        <i class="fa fa-pencil-square" title="Edit task name"
+                            (click)="performAction('task', 'patch',task)"></i>
+                        <i class="fa fa-trash" title="Delete task" (click)="performAction('task', 'delete',task)"></i>
                     </div>
                 </div>
             </ng-container>
 
             <ng-template #noTasks>
-                <div class="error__message">
+                <div *ngIf="!isLoading" class="error__message">
                     <p>No Tasks Found</p>
                 </div>
             </ng-template>
 
-            <button class="button primary circle-add-button" routerLink="/lists/{{currentId}}/new-task">+</button>
+            <button title="Create new task" class="button primary circle-add-button"
+                routerLink="/lists/{{currentId}}/new-task">+</button>
         </div>
     </div>
 </div>

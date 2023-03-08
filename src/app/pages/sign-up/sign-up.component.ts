@@ -8,13 +8,21 @@ import { AuthService } from 'src/app/auth.service';
   styleUrls: ['./sign-up.component.scss'],
 })
 export class SignUpComponent implements OnInit {
+  isLoading: boolean = false;
   constructor(private authService: AuthService, private router: Router) {}
 
   ngOnInit(): void {}
 
   signup(email: string, password: string) {
-    this.authService.signup(email, password).subscribe((res) => {
-      this.router.navigateByUrl('/lists');
-    });
+    this.isLoading = true;
+    this.authService.signup(email, password).subscribe(
+      (res) => {
+        this.isLoading = false;
+        this.router.navigateByUrl('/lists');
+      },
+      (err) => {
+        this.isLoading = false;
+      }
+    );
   }
 }

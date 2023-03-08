@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { Route, Router } from '@angular/router';
 import { AuthService } from 'src/app/auth.service';
 import { TaskService } from 'src/app/task.service';
-
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -12,6 +11,7 @@ export class LoginComponent implements OnInit {
   constructor(private authService: AuthService, private route: Router) {}
 
   errorMessage: string = '';
+  isLoading: boolean = false;
 
   ngOnInit(): void {}
 
@@ -24,13 +24,16 @@ export class LoginComponent implements OnInit {
     } else if (password == '') {
       this.errorMessage = 'Enter your password';
     } else {
+      this.isLoading = true;
       this.authService.login(email, password).subscribe(
         (res) => {
           if (res.status === 200) {
+            this.isLoading = true;
             this.route.navigate(['/lists']);
           }
         },
         (err) => {
+          this.isLoading = true;
           this.errorMessage = 'Invalid user!';
         }
       );

@@ -1,3 +1,4 @@
+<app-spinner *ngIf="isLoading"></app-spinner>
 <div class="centered__div">
     <div class="modal__box">
         <h1 class="title">Create a new list</h1>
@@ -6,7 +7,7 @@
 
         </div>
         <div class="buttons">
-            <button class="button margin-right" routerLink="/">Cancel</button>
+            <button class="button margin-right" routerLink="/lists">Cancel</button>
             <button class="button primary" (click)="createList(listTitleInput.value)"> Submit </button>
         </div>
 

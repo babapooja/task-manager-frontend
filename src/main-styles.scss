@@ -29,9 +29,11 @@ html {
     background: $gradient;
     font-family: $family-sans-serif;
     color: $dark-purple;
+
     body {
         margin: 0;
     }
+
     .title {
         color: $dark-purple;
         font-weight: 600;
@@ -138,12 +140,14 @@ body {
     width: 100%;
     height: 100%;
 }
+
 .error__message {
     height: -webkit-fill-available;
     display: flex;
     justify-content: center;
     align-items: center;
 }
+
 .modal__box {
     min-height: 200px;
     width: 100%;
@@ -151,6 +155,7 @@ body {
     background-color: white;
     border-radius: 10px;
     padding: 25px;
+
     .form {
         height: 100%;
         display: flex;
@@ -173,19 +178,21 @@ body {
             height: 45px;
         }
     }
-    .fa {
-        font-size: x-large;
-        cursor: pointer;
-        opacity: 0;
-        transform: scale(0.5);
-    }
 
-    .fa-pencil-square {
-        color: green;
-        margin-right: 5px;
-    }
+}
 
-    .fa-trash {
-        color: red;
-    }
+.fa {
+    font-size: x-large;
+    cursor: pointer;
+    opacity: 0;
+    transform: scale(0.5);
+}
+
+.fa-pencil-square {
+    color: green;
+    margin-right: 10px;
+}
+
+.fa-trash {
+    color: red;
 }

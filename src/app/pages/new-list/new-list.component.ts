@@ -8,13 +8,20 @@ import { TaskService } from 'src/app/task.service';
   styleUrls: ['./new-list.component.scss'],
 })
 export class NewListComponent implements OnInit {
+  isLoading: boolean = false;
   constructor(private taskService: TaskService, private router: Router) {}
-
   ngOnInit(): void {}
 
   createList(title: string) {
-    this.taskService.createList(title).subscribe((list: any) => {
-      this.router.navigate(['/lists', list._id]);
-    });
+    this.isLoading = true;
+    this.taskService.createList(title).subscribe(
+      (list: any) => {
+        this.isLoading = false;
+        this.router.navigate(['/lists', list._id]);
+      },
+      (err) => {
+        this.isLoading = false;
+      }
+    );
   }
 }

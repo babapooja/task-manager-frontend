@@ -9,6 +9,7 @@ import { TaskService } from 'src/app/task.service';
 })
 export class NewTaskComponent implements OnInit {
   listID = '';
+  isLoading: boolean = false;
   constructor(
     private taskService: TaskService,
     private router: Router,
@@ -22,9 +23,16 @@ export class NewTaskComponent implements OnInit {
   }
 
   createTask(title: string) {
-    this.taskService.createTask(title, this.listID).subscribe((res: any) => {
-      // navigate back to /lists/:listId
-      this.router.navigateByUrl(`lists/${res._listId}`);
-    });
+    this.isLoading = true;
+    this.taskService.createTask(title, this.listID).subscribe(
+      (res: any) => {
+        this.isLoading = false;
+        // navigate back to /lists/:listId
+        this.router.navigateByUrl(`lists/${res._listId}`);
+      },
+      (err) => {
+        this.isLoading = false;
+      }
+    );
   }
 }
