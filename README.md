@@ -2,6 +2,8 @@
 
 This frontend application is developed using Angular, and is deployed on Azure at - [Task Manager](https://task-manager.azurewebsites.net/). To implement this application, followed tutorial by [Devstackr - Build a Task Manager Application](https://youtu.be/V-CeWkz1MNQ)
 
+To style the application, made use of SASS.
+
 ## Features
 
 1. Login: User can login to the application by entering the email address and the password. If the user has not registered then error message will be displayed.
